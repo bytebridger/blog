@@ -1,7 +1,3 @@
-<!--- Filesystem Hierarchy Standard v3 --->
-<!--- LSB Workgroup, The Linux Foundation --->
-<!--- study notes --->
-
 +++
 title = "Filesystem Hierarchy Standard - study notes"
 date = 2023-02-25
