@@ -12,8 +12,6 @@ development tools, and scripts as well as greater uniformity of documentation fo
 
 <!-- more -->
 
-# Filesystem Hierarchy Standard
-
 # Ch. 1 - Introduction
 
 - This standard enables software and users to predict the location of installed files and directories. 
