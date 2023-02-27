@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://orhun.dev" />
+    <meta property="og:title" content="orhun(8)" />
+    <meta
+      property="og:description"
+      content="Personal website of Orhun Parmaksız"
+    />
+    <meta property="og:image" content="img/crow.png" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      async
+      defer
+      data-website-id="12440f6b-8067-4817-8b59-c8c5e9a124f0"
+      src="https://umami.orhun.dev/umami.js"
+    ></script>
+    <title>orhun(8)</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Roboto Mono", monospace;
+        font-size: 1em;
+        background-color: #1a1c20;
+        filter: invert(100%);
+      }
+      @keyframes intro {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      div.main {
+        animation: intro 0.3s both;
+        animation-delay: 0.15s;
+      }
+      a:hover {
+        background-color: #fff;
+        color: #000;
+      }
+      div.container {
+        max-width: 45em;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      h1,
+      h2,
+      h3,
+      p {
+        font-size: 1em;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .command,
+      .argument {
+        font-weight: bold;
+      }
+      div.container div h1 {
+        font-weight: normal;
+      }
+      div,
+      p.indented {
+        margin-bottom: 1em;
+      }
+      div.section div {
+        margin-left: 4em;
+      }
+      p.indented {
+        margin-left: 2em;
+      }
+      a {
+        color: black;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      ::-moz-selection {
+        color: #e5e3df;
+        background: #1a1c20;
+      }
+      ::selection {
+        color: #e5e3df;
+        background: #1a1c20;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container main">
+      <div class="section">
+        <h2>NAME</h2>
+        <div>
+          <p>orhun — Orhun Parmaksız</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>SYNOPSIS</h2>
+        <div>
+          <p>
+            <span class="command">orhun</span> [<span class="argument"
+              >OPTIONS</span
+            >]
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>DESCRIPTION</h2>
+        <div>
+          <p>
+            Open source enthusiast. Mainly into software but likes to deal with
+            hardware. Uses wetware for solving problems about both. Reinvents
+            the wheel occasionally and creates obscure stuff. Packages things
+            for <a href="https://www.archlinux.org/">archlinux</a>(2)
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>OPTIONS</h2>
+        <div>
+          <h3>--hey</h3>
+          <p class="indented">Sends magic bytes for communication</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>SUPPORTED EXTENSIONS</h2>
+        <div>
+          <p>*.sh, *.c, *.rs, *.zig</p>
+          <p>*.go, *.py, *.js, *.java</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>PROJECTS</h2>
+        <div>
+          <p>
+            <a href="/git-cliff">git-cliff</a>,
+            <a href="/systeroid">systeroid</a>, <a href="/kmon">kmon</a>,
+            <a href="/menyoki">menyoki</a>
+          </p>
+          <p>
+            <a href="https://github.com/orhun/gpg-tui">gpg-tui</a>,
+            <a href="https://github.com/orhun/rustypaste">rustypaste</a>,
+            <a href="https://coolmodfiles.com">coolmodfiles.com</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>ENVIRONMENT VARIABLES</h2>
+        <div>
+          <h3>LANG</h3>
+          <p class="indented">en_US.utf-8</p>
+          <h3>PGP_KEY</h3>
+          <p class="indented">
+            <a href="https://github.com/orhun.gpg">0xF83424824B3E4B90</a>
+          </p>
+          <h3>IRC_NICK</h3>
+          <p class="indented">
+            <a href="irc://irc.libera.chat:orhun">orhun</a>
+          </p>
+          <h3>DONATIONS</h3>
+          <p class="indented">
+            <a href="https://github.com/sponsors/orhun">github</a>,<a
+              href="https://www.patreon.com/join/orhunp"
+              >patreon</a
+            >,<a href="/img/xmr.png">xmr_qr</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>KNOWN BUGS</h2>
+        <div>
+          <p>Keeps things simple.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>SEE ALSO</h2>
+        <div>
+          <p>
+            <a href="https://blog.orhun.dev">blog</a>(4),
+            <a href="https://github.com/orhun">github</a>(4),
+            <a href="mailto:orhunparmaksiz@gmail.com">email</a>(4),
+            <br />
+            <a rel="me" href="https://fosstodon.org/@orhun">mastodon</a>(4),
+            <a href="https://twitter.com/orhunp_">twitter</a>(4),
+            <a href="https://www.linkedin.com/in/orhunp/">linkedin</a>(4),
+            <br />
+            <a href="https://lospec.com/orhun">gallery</a>(4),
+            <a href="https://youtu.be/dQw4w9WgXcQ">onlyfans</a>(6)
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
