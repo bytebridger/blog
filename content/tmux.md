@@ -3,7 +3,7 @@ title = "tmux - walkthrough with a practical example"
 date = 2023-02-26
 
 [taxonomies]
-categories = ["Linux"]
+categories = ["linux"]
 +++
 
 This brief post contains some notes related to tmux - from installation to practical example.

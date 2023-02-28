@@ -3,7 +3,7 @@ title = "Filesystem Hierarchy Standard - study notes"
 date = 2023-02-25
 
 [taxonomies]
-categories = ["Linux"]
+categories = ["linux"]
 +++
 
 This standard consists of a set of requirements and guidelines for file and directory placement under UNIX-like
