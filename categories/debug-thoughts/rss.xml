@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Blog - debug-thoughts</title>
+      <link>https://bytebridger.com/</link>
+      <description>DevOps • Linux • Pancakes</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://bytebridger.com/categories/debug-thoughts/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 24 Feb 2023 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>about</title>
+          <pubDate>Fri, 24 Feb 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bytebridger.com/about/</link>
+          <guid>https://bytebridger.com/about/</guid>
+          <description>&lt;p&gt;The main purpose of this about page is to actually provide
+more information about me and this blog. I am not a writer, but I will give my best to provide description for this endeavour and actually the main motivation behind it. Just to debug my thoughts or for something more?&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

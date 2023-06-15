@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title>Blog</title>
+
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://bytebridger.com/rss.xml">
+      
+
+      
+          <link rel="stylesheet" href="https://bytebridger.com/site.css">
+      
+
+      
+      
+    </head>
+
+    <body class="hack dark main container">
+        
+    
+        
+                
+                    <header>
+                        <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;bytebridger.com&#x2F;">
+                                <span itemprop="name">Home</span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;bytebridger.com&#x2F;&#x2F;categories">
+                                <span itemprop="name">Categories</span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;bytebridger.com&#x2F;&#x2F;about">
+                                <span itemprop="name">About</span></a>
+                        
+                        </nav>
+                    </header>
+                
+            
+    
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">Filesystem Hierarchy Standard - study notes</h1>
+        <span class="muted">
+    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <span>11 minute read</span>
+    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2023-02-25
+</span>
+    </header>
+    <div itemprop="articleBody">
+      <p>This standard consists of a set of requirements and guidelines for file and directory placement under UNIX-like
+operating systems. The guidelines are intended to support interoperability of applications, system administration tools,
+development tools, and scripts as well as greater uniformity of documentation for these systems.</p>
+<span id="continue-reading"></span><h1 id="ch-1-introduction">Ch. 1 - Introduction</h1>
+<ul>
+<li>This standard enables software and users to predict the location of installed files and directories. </li>
+</ul>
+<h1 id="ch-2-the-filesystem">Ch.2 - The filesystem</h1>
+<ul>
+<li>
+<p>We can define two independent distinctions among files:</p>
+<ul>
+<li>shareable vs. unshareable</li>
+<li>variable vs. static</li>
+</ul>
+</li>
+<li>
+<p>In general, files that differ in either of these respects should be located in different directories. This makes it easy to store files with different usage characteristics on different filesystems.</p>
+<ul>
+<li>
+<p><code>shareable files</code> are files that can be stored on one host and used on others.
+<code>unshareable files</code> are those that are not shareable - example with device lock files.</p>
+</li>
+<li>
+<p><code>static files</code> include binaries, libraries, documentation files and other files that do not change without sys admin intervention.</p>
+</li>
+<li>
+<p><code>variable files</code> are files that are not static.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="ch-3-the-root-filesystem">Ch. 3 - The Root Filesystem</h1>
+<ul>
+<li>
+<p>The contents of the root filesystem must be adequate to boot, restore, recover and / or repair the system.</p>
+</li>
+<li>
+<p>The root filesystem contains many system-specific configuration files - possible examples include a kernel that is specific to the system.</p>
+</li>
+<li>
+<p>The following firectories or symbolic links to directories are required in <code>/</code>:</p>
+</li>
+<li>
+<p><code>bin</code> - essential command binaries.</p>
+</li>
+<li>
+<p><code>boot</code> - static files of the boot loader.</p>
+</li>
+<li>
+<p><code>dev</code> - device files.</p>
+</li>
+<li>
+<p><code>etc</code> - host-specific system configuration.</p>
+</li>
+<li>
+<p><code>lib</code> - essential shared libraries and kernel modules.</p>
+</li>
+<li>
+<p><code>media</code> - mount point for removable media.</p>
+</li>
+<li>
+<p><code>mnt</code> - mount point for mounting a filesystem temporarily.</p>
+</li>
+<li>
+<p><code>opt</code> - add-on application software packages.</p>
+</li>
+<li>
+<p><code>run</code> - data relevant to running processes.</p>
+</li>
+<li>
+<p><code>sbin</code> - essential system binaries.</p>
+</li>
+<li>
+<p><code>srv</code> - data for services provided by this system.</p>
+</li>
+<li>
+<p><code>tmp</code> - temporary files.</p>
+</li>
+<li>
+<p><code>usr</code> - secondary hierarchy.</p>
+</li>
+<li>
+<p><code>var</code> - variable data.</p>
+</li>
+<li>
+<p>The following directories or symbolic links to directories must be in <code>/</code> if the corresponding subsystem is installed:</p>
+</li>
+<li>
+<p><code>home</code> - user home directories (optional).</p>
+</li>
+<li>
+<p><code>lib&lt;qual&gt;</code> - alternate format essential shared libraries.</p>
+</li>
+<li>
+<p><code>root</code> - home directory for the root user.</p>
+</li>
+</ul>
+<h2 id="bin-essential-user-command-binaries"><code>/bin</code> - essential user command binaries</h2>
+<ul>
+<li>
+<p><code>/bin</code> contains commands that may be used by all users. The following commands are required in <code>/bin</code>:</p>
+</li>
+<li>
+<p><code>cat</code> - Utility to concatenate files to standard output.</p>
+</li>
+<li>
+<p><code>chgrp</code> - Utility to change file group ownership.</p>
+</li>
+<li>
+<p><code>chmod</code> - Utility to change file access permissions.</p>
+</li>
+<li>
+<p><code>chown</code> - Utility to change file owner and group.</p>
+</li>
+<li>
+<p><code>cp</code> - Utility to copy files and directories.</p>
+</li>
+<li>
+<p><code>date</code> - Utility to print or set the system data and time.</p>
+</li>
+<li>
+<p><code>dd</code> - Utility to convert and copy a file.</p>
+</li>
+<li>
+<p><code>df</code> - Utility to report filesystem disk space usage.</p>
+</li>
+<li>
+<p><code>dmesg</code> - Utility to print or control the kernel message buffer.</p>
+</li>
+<li>
+<p><code>echo</code> - Utility to display a line of text.</p>
+</li>
+<li>
+<p><code>false</code> - Utility to do nothing, unsuccessfully.</p>
+</li>
+<li>
+<p><code>hostname</code> - Utility to show or set the system's host name.</p>
+</li>
+<li>
+<p><code>kill</code> - Utility to send signals to processes.</p>
+</li>
+<li>
+<p><code>ln</code> - Utility to make links between files.</p>
+</li>
+<li>
+<p><code>login</code> - Utility to begin a session on the system.</p>
+</li>
+<li>
+<p><code>ls</code> - Utility to list directory contents.</p>
+</li>
+<li>
+<p><code>mkdir</code> - Utility to make directories.</p>
+</li>
+<li>
+<p><code>mknod</code> - Utility to make block or character special files.</p>
+</li>
+<li>
+<p><code>more</code> - Utility to page through text.</p>
+</li>
+<li>
+<p><code>mount</code> - Utility to mount a filesystem.</p>
+</li>
+<li>
+<p><code>mv</code> - Utility to move/rename files.</p>
+</li>
+<li>
+<p><code>ps</code> - Utility to report process status.</p>
+</li>
+<li>
+<p><code>pwd</code> - Utility to print name of current working directory.</p>
+</li>
+<li>
+<p><code>rm</code> - Utility to remove files or directories.</p>
+</li>
+<li>
+<p><code>rmdir</code> - Utility to remove empty directories.</p>
+</li>
+<li>
+<p><code>sed</code> - The `sed' stream editor.</p>
+</li>
+<li>
+<p><code>sh</code> - POSIX compatible command shell.</p>
+</li>
+<li>
+<p><code>stty</code> - Utility to change and print terminal line settings.</p>
+</li>
+<li>
+<p><code>su</code> - Utility to change user ID.</p>
+</li>
+<li>
+<p><code>sync</code> - Utility to flush filesystem buffers.</p>
+</li>
+<li>
+<p><code>true</code> - Utility to do nothing, successfully.</p>
+</li>
+<li>
+<p><code>umount</code> - Utility to unmount file systems.</p>
+</li>
+<li>
+<p><code>uname</code> - Utility to print system information.</p>
+</li>
+<li>
+<p>The following programs or symbolic links to programs must be in <code>/bin</code> if the corresponding subsystem is installed:</p>
+</li>
+<li>
+<p><code>csh</code> - the C shell.</p>
+</li>
+<li>
+<p><code>ed</code> - The `ed' editor.</p>
+</li>
+<li>
+<p><code>tar</code> - The tar archiving utility.</p>
+</li>
+<li>
+<p><code>cpio</code> - The cpio archiving utility.</p>
+</li>
+<li>
+<p><code>gzip</code> - The GNU compression utility.</p>
+</li>
+<li>
+<p><code>gunzip</code> - The GNU uncompression utility.</p>
+</li>
+<li>
+<p><code>zcat</code> - The GNU uncompression utility.</p>
+</li>
+<li>
+<p><code>netstat</code> - The network statistics utility.</p>
+</li>
+<li>
+<p><code>ping</code> - The ICMP network test utility.</p>
+</li>
+</ul>
+<h2 id="boot-static-files-of-the-boot-loader"><code>/boot</code> - static files of the boot loader</h2>
+<ul>
+<li>The <code>/boot</code> stores data that is used before the kernel begins executing user-mode programs. This may include saved master boot sectors and sector map files.</li>
+<li>Programs necessary to arrange for the boot loader to be able to boot a file must be placed in <code>/sbin</code>. Configuration files for boot loaders that are not required at boot time must be placed in <code>/etc</code>.</li>
+<li>The operating system kernel must be located in either <code>/</code> or <code>/boot</code>.</li>
+</ul>
+<h2 id="dev-device-files"><code>/dev</code> - device files</h2>
+<ul>
+<li>The <code>/dev</code> directory is the location of special or device files, it must contain a command named <code>MAKEDEV</code> which can create devices as needed.</li>
+</ul>
+<h2 id="etc-host-specific-system-configuration"><code>/etc</code> - host-specific system configuration</h2>
+<ul>
+<li>
+<p>The <code>/etc</code> hierarchy contains configuration files. A configuration file is a local file used to control the operation of a program, it must be static and cannot be an executable binary. </p>
+</li>
+<li>
+<p>It is recommended t hat files be stored in subdirectories of <code>/etc</code> rather than directly in <code>/etc</code>.</p>
+</li>
+<li>
+<p>The <code>/opt</code> directory or symbolic link to directory is required in <code>/etc</code>.</p>
+</li>
+</ul>
+<h2 id="etc-opt-configuration-files-for-opt"><code>/etc/opt</code> - configuration files for <code>/opt</code></h2>
+<ul>
+<li>Host-specific config files for add-on application software packages must be installed within the directory <code>/etc/opt/&lt;subdir&gt;</code> where <code>&lt;subdir&gt;</code> is the name of the subtree in <code>/opt</code> where the static data from that package is stored.</li>
+</ul>
+<h2 id="lib-essential-shared-libraries-and-kernel-modules"><code>/lib</code> - essential shared libraries and kernel modules</h2>
+<ul>
+<li>The <code>/lib</code> directory contains those shared library images needed to boot the system and run the commands in the root filesystem, for example - by binaries in <code>/bin</code> and <code>/sbin</code>.</li>
+</ul>
+<h2 id="media-mount-point-for-removable-media"><code>/media</code> - mount point for removable media</h2>
+<ul>
+<li>The <code>/media</code> directory contains subdirectories which are used as mount points for removable media.</li>
+</ul>
+<h2 id="mnt-mount-point-for-a-temporarily-mounted-filesystem"><code>/mnt</code> - mount point for a temporarily mounted filesystem</h2>
+<ul>
+<li>
+<p>This directory is provided so that the system administrator may temporarily mount a filesystem as needed. The content of this directory is a local issue and should not affect the manner in which any program is run.</p>
+</li>
+<li>
+<p>This directory must not be used by installation programs.</p>
+</li>
+</ul>
+<h2 id="opt-add-on-application-software-packages"><code>/opt</code> - add-on application software packages</h2>
+<ul>
+<li>
+<p><code>/opt</code> is reserved for the installation of add-on application software packages.</p>
+</li>
+<li>
+<p>A package to be installed in <code>/opt</code> must locate its static files in a separate <code>opt/&lt;package&gt;</code> or <code>opt/&lt;provider&gt;</code> directory tree, where <code>&lt;package&gt;</code> is a name that describes the software package and <code>&lt;provider&gt;</code> is the provider's LANANA registered name.</p>
+</li>
+<li>
+<p>Package files that are variable (change in normal operation) must be installed in <code>/var/opt</code>, while host-specific configuration files must be installed in <code>/etc/opt</code>.</p>
+</li>
+<li>
+<p>Generally, all data required to support a package on a system must be present within <code>/opt/&lt;package&gt;</code>, including files intended to be copied into <code>/etc/opt/&lt;package&gt;</code> and <code>/var/opt/&lt;package&gt;</code> as well as reserved directories in <code>/opt</code>.</p>
+</li>
+</ul>
+<h2 id="root-home-directory-for-the-root-user"><code>/root</code> - home directory for the root user</h2>
+<ul>
+<li>The root account's home directory may be determined by developer or local preference, but this is the recommended default location.</li>
+</ul>
+<h2 id="run-run-time-variable-data"><code>/run</code> - run-time variable data</h2>
+<ul>
+<li>This directory contains system information data describing the system since it was booted.</li>
+</ul>
+<h2 id="sbin-system-binaries"><code>/sbin</code> - system binaries</h2>
+<ul>
+<li>Utilities used for system administration and other root-only commands are stored in <code>/sbin</code>, <code>/usr/sbin</code> and <code>/usr/local/sbin</code>. </li>
+<li><code>/sbin</code> contains binaries essential for booting, restoring, recovering, and / or reparining the system in addition to the binaries in <code>/bin</code>. </li>
+</ul>
+<h2 id="srv-data-for-services-provided-by-this-system"><code>/srv</code> - data for services provided by this system</h2>
+<ul>
+<li><code>/srv</code> contains site-specific data which is served by this system.</li>
+</ul>
+<h2 id="tmp-temporary-files"><code>/tmp</code> - temporary files</h2>
+<ul>
+<li>The <code>/tmp</code> directory must be made available for programs that require temporary files. </li>
+</ul>
+<h1 id="ch-4-the-usr-hierarchy">Ch. 4 - The <code>/usr</code> hierarchy</h1>
+<ul>
+<li>
+<p><code>/usr</code> is the second major section of the filesystem, shareable, read-only data. The following directories, or symbolic links to directories are required in <code>/usr</code>:</p>
+</li>
+<li>
+<p><code>bin</code> - most user commands</p>
+</li>
+<li>
+<p><code>lib</code> - libraries</p>
+</li>
+<li>
+<p><code>local</code> - local hierarchy</p>
+</li>
+<li>
+<p><code>sbin</code> - non-vital system binaries</p>
+</li>
+<li>
+<p><code>share</code> - architecture-independent data</p>
+</li>
+</ul>
+<h2 id="usr-bin-most-user-commands"><code>/usr/bin</code> - most user commands</h2>
+<ul>
+<li><code>/usr/bin</code> - the primary directory of executable commands on the system.</li>
+</ul>
+<h2 id="usr-include-directory-for-standard-include-files"><code>/usr/include</code> - directory for standard include files.</h2>
+<h2 id="usr-lib-libraries-for-programming-and-packages"><code>/usr/lib</code> - libraries for programming and packages</h2>
+<ul>
+<li><code>/usr/lib</code> includes object files and libraries. On some systems, it may also include internal binaries that are not intended to be executed directly by users or shell scripts.</li>
+</ul>
+<h2 id="usr-libexec-binaries-run-by-other-programs"><code>/usr/libexec</code> - binaries run by other programs</h2>
+<ul>
+<li><code>/usr/libexec</code> includes internal binaries that are not intended to be executed directly by users or shell scripts. Applications may use a single subdirectory under <code>/usr/libexec</code>.</li>
+</ul>
+<h2 id="usr-local-local-hierarchy"><code>/usr/local</code> - local hierarchy</h2>
+<ul>
+<li>
+<p>The <code>/usr/local</code> hierarchy is for use by the system administrator when installing software locally. It needs to be safe from being overwritten when the system software is updated. It may be used for programs and data that are shareable amongst a group of hosts, but not found in <code>/usr</code>.</p>
+</li>
+<li>
+<p>Locally installed software must be placed within <code>/usr/local</code> rather than <code>/usr</code> unless it is being installed to replace or upgrade software in <code>/usr</code>. </p>
+</li>
+<li>
+<p>The following directories or sym links to directories must be in <code>/usr/local</code>:</p>
+</li>
+<li>
+<p><code>bin</code> - local binaries.</p>
+</li>
+<li>
+<p><code>etc</code> - host-specific system configuration for local binaries.</p>
+</li>
+<li>
+<p><code>games</code> - local game binaries.</p>
+</li>
+<li>
+<p><code>include</code> - local C header files.</p>
+</li>
+<li>
+<p><code>lib</code> - local libraries.</p>
+</li>
+<li>
+<p><code>man</code> - local online manuals.</p>
+</li>
+<li>
+<p><code>sbin</code> - local system binaries.</p>
+</li>
+<li>
+<p><code>share</code> - local architecture-independent hierarchy.</p>
+</li>
+<li>
+<p><code>src</code> - local source code.</p>
+</li>
+</ul>
+<h2 id="usr-bin-non-essential-standard-system-binaries"><code>/usr/bin</code> - non-essential standard system binaries</h2>
+<ul>
+<li>This directory contains any non-essential binaries used exclusively by the system administrator. System administration programs that are required for system repair, system recovery, mounting <code>/usr</code> or other essential functions must be placed in <code>/sbin</code> instead.</li>
+</ul>
+<h2 id="usr-share-architecture-independent-data"><code>/usr/share</code> - architecture-independent data</h2>
+<ul>
+<li>
+<p>The <code>/usr/share</code> hierarchy is for all read-only architecture independent data files. The following directories or sym links to directories must be in <code>/usr/share</code>.</p>
+</li>
+<li>
+<p><code>man</code> - online manuals.</p>
+</li>
+<li>
+<p><code>misc</code> - miscellaneous architecture-independent data.</p>
+</li>
+</ul>
+<h2 id="usr-share-man-manual-pages"><code>/usr/share/man</code> - manual pages</h2>
+<ul>
+<li>The primary <code>&lt;mandir&gt;</code> of the system is <code>/usr/share/man</code>. <code>/usr/share/man</code> contains manual information for commands and data under the <code>/</code> and <code>/usr</code> filesystems.</li>
+</ul>
+<h1 id="ch-5-the-var-hierarchy">Ch. 5 - The <code>/var</code> Hierarchy</h1>
+<ul>
+<li>
+<p><code>/var</code> contains variable data files. This includes <code>spool</code> directories and files, administrative and logging data, and transient and temporary files. The following directories or symbolic links to directories are required in <code>/var</code>:</p>
+</li>
+<li>
+<p><code>cache</code> - application cache data.</p>
+</li>
+<li>
+<p><code>lib</code> - variable state information.</p>
+</li>
+<li>
+<p><code>local</code> - variable data for <code>/usr/local</code>.</p>
+</li>
+<li>
+<p><code>lock</code> - lock files. </p>
+</li>
+<li>
+<p><code>log</code> - log files and directories.</p>
+</li>
+<li>
+<p><code>opt</code> - variable data for <code>/opt</code>.</p>
+</li>
+<li>
+<p><code>run</code> - data relevant to running processes.</p>
+</li>
+<li>
+<p><code>spool</code> - application spool data.</p>
+</li>
+<li>
+<p><code>tmp</code> - temporary files preserved between system reboots.</p>
+</li>
+<li>
+<p>Several directories that are reserved and cannot be used by some new application:</p>
+</li>
+<li>
+<p><code>/var/backups</code></p>
+</li>
+<li>
+<p><code>/var/cron</code></p>
+</li>
+<li>
+<p><code>/var/msgs</code></p>
+</li>
+<li>
+<p><code>/var/preserve</code></p>
+</li>
+</ul>
+<h2 id="var-cache-application-cache-data"><code>/var/cache</code> - application cache data</h2>
+<ul>
+<li><code>/var/cache</code> is intended for cached data from applications. Such data is locally generated as a result of time-consuming <code>I/O</code> or calculation. The application must be able to generate or restore the data. Unlike <code>/var/spool</code> the cached files can be deleted without data loss. The data must remain valid between invocations of the application and rebooting the system.</li>
+</ul>
+<h2 id="var-crash-system-crash-dumps"><code>/var/crash</code> - system crash dumps</h2>
+<ul>
+<li>This directory holds system crash dumps.</li>
+</ul>
+<h2 id="var-lib-variable-state-information"><code>/var/lib</code> - variable state information</h2>
+<ul>
+<li>
+<p>This hierarchy holds state information pertaining to an application or the system. </p>
+</li>
+<li>
+<p>State information is data that programs modify while they run, and that pertains to one specific host. Users must never need to modify files in <code>/var/lib</code> to configure a package's operation, and the specific file hierarchy used to store the data must not be exposed to regular users.</p>
+</li>
+<li>
+<p>The following directory or sym link to directory is required in <code>/var/lib</code>:</p>
+<ul>
+<li><code>misc</code> - miscellaneous state data.</li>
+</ul>
+</li>
+</ul>
+<h2 id="var-lib-editor-editor-backup-files-and-state"><code>/var/lib/&lt;editor&gt;</code> - Editor backup files and state</h2>
+<ul>
+<li>These directories contain saved files generated by any unexpected termination of an editor (e.g., elvis,jove, nvi).</li>
+</ul>
+<h2 id="var-lock-lock-files"><code>/var/lock</code> - Lock files</h2>
+<ul>
+<li>In this directory we can find lock files for devices and other resources shared by multiple applications, such as the serial device lock files.</li>
+</ul>
+<h2 id="var-log-log-files-and-directories"><code>/var/log</code> - Log files and directories</h2>
+<ul>
+<li>This directory contains miscellaneous log files.</li>
+</ul>
+<h2 id="var-spool-application-spool-data"><code>/var/spool</code> - Application spool data</h2>
+<ul>
+<li><code>/var/spool</code> contains data which is awaiting some kind of later processing. Data in <code>/var/spool</code> represents work to be done in the future (by a program, user, or administrator); often data is deleted after
+it has been processed.</li>
+</ul>
+<h2 id="var-tmp-temporary-files-preserved-between-system-reboots"><code>/var/tmp</code> - Temporary files preserved between system reboots</h2>
+<ul>
+<li>
+<p>The <code>/var/tmp</code> directory is made available for programs that require temporary files or directories that are preserved between system reboots. </p>
+</li>
+<li>
+<p>Therefore, data stored in <code>/var/tmp</code> is more persistent than data
+in <code>/tmp</code>.</p>
+</li>
+</ul>
+<h1 id="ch-6-operating-system-specific-annex">Ch. 6 - Operating System Specific Annex</h1>
+<h2 id="dev-devices-and-special-files"><code>/dev</code> - Devices and special files</h2>
+<ul>
+<li>
+<p>The following devices must exist under <code>/dev</code>:</p>
+<ul>
+<li><code>/dev/null</code> - All data written to this device is discarded. A read from this device will return an EOF condition.</li>
+<li><code>/dev/zero</code></li>
+<li><code>/dev/tty</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="proc-kernel-and-process-information-virtual-filesystem"><code>/proc</code> - Kernel and process information virtual filesystem</h2>
+<ul>
+<li>The <code>proc</code> filesystem is the de-facto standard Linux method for handling process and system information, rather than <code>/dev/kmem</code> and other similar methods. We strongly encourage this for the storage and retrieval of process information as well as other kernel and memory information.</li>
+</ul>
+<h2 id="sbin-essential-system-binaries"><code>/sbin</code> - Essential system binaries</h2>
+<ul>
+<li>Linux systems place commands relating to filesystem maintenance and boot loader management into <code>/sbin</code>.</li>
+</ul>
+<h2 id="sys-kernel-and-system-information-virtual-filesystem"><code>/sys</code> - Kernel and system information virtual filesystem</h2>
+<ul>
+<li>The <code>sys</code> filesystem is the location where information about devices, drivers, and some kernel features is exposed. Its underlying structure is determined by the particular Linux kernel being used at the moment, and is otherwise unspecified.</li>
+</ul>
+<h2 id="var-spool-cron-cron-and-at-jobs"><code>/var/spool/cron</code> - cron and at jobs</h2>
+<ul>
+<li>This directory contains the variable data for the cron and at programs.</li>
+</ul>
+<h1 id="ch-7-appendix">Ch. 7 - Appendix</h1>
+<h6 id="floppy-disk-eof">💾 EOF</h6>
+<ul>
+<li>Husein</li>
+</ul>
+
+    </div>
+
+    
+        <footer>
+            <hr>
+            <p>
+                
+                    Published by Husein
+                
+                
+                    
+                    in <a href="https://bytebridger.com/categories/linux/">linux</a>
+                
+                
+            </p>
+            
+            
+        </footer>
+    
+</article>
+
+
+    </body>
+
+</html>

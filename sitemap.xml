@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://bytebridger.com/</loc>
+    </url>
+    <url>
+        <loc>https://bytebridger.com/about/</loc>
+        <lastmod>2023-02-24</lastmod>
+    </url>
+    <url>
+        <loc>https://bytebridger.com/automation/</loc>
+        <lastmod>2023-03-12</lastmod>
+    </url>
+    <url>
+        <loc>https://bytebridger.com/categories/</loc>
+    </url>
+    <url>
+        <loc>https://bytebridger.com/categories/debug-thoughts/</loc>
+    </url>
+    <url>
+        <loc>https://bytebridger.com/categories/linux/</loc>
+    </url>
+    <url>
+        <loc>https://bytebridger.com/categories/scripting/</loc>
+    </url>
+    <url>
+        <loc>https://bytebridger.com/fs-hierarchy/</loc>
+        <lastmod>2023-02-25</lastmod>
+    </url>
+    <url>
+        <loc>https://bytebridger.com/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://bytebridger.com/tmux/</loc>
+        <lastmod>2023-02-26</lastmod>
+    </url>
+</urlset>

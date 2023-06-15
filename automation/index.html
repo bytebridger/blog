@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title>Blog</title>
+
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://bytebridger.com/rss.xml">
+      
+
+      
+          <link rel="stylesheet" href="https://bytebridger.com/site.css">
+      
+
+      
+      
+    </head>
+
+    <body class="hack dark main container">
+        
+    
+        
+                
+                    <header>
+                        <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;bytebridger.com&#x2F;">
+                                <span itemprop="name">Home</span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;bytebridger.com&#x2F;&#x2F;categories">
+                                <span itemprop="name">Categories</span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;bytebridger.com&#x2F;&#x2F;about">
+                                <span itemprop="name">About</span></a>
+                        
+                        </nav>
+                    </header>
+                
+            
+    
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">the whole point of automation</h1>
+        <span class="muted">
+    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <span>3 minute read</span>
+    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2023-03-12
+</span>
+    </header>
+    <div itemprop="articleBody">
+      <p>Automation will help us get things done quickly and efficiently, but I have to say - 
+I have never read anything more creative when it comes to scripting. This is a true
+story that was told by Nihad Abbasov [Narkoz] based on his experience with one of his
+co-worker's scripts.</p>
+<span id="continue-reading"></span>
+<blockquote>
+<p>xxx: OK, so, our build engineer has left for another company. The dude was literally living inside the terminal. You know, that type of a guy who loves Vim, creates diagrams in Dot and writes wiki-posts in Markdown... If something - anything - requires more than 90 seconds of his time, he writes a script to automate that.</p>
+</blockquote>
+<blockquote>
+<p>xxx: So we're sitting here, looking through his, uhm, &quot;legacy&quot;</p>
+</blockquote>
+<blockquote>
+<p>xxx: You're gonna love this</p>
+</blockquote>
+<blockquote>
+<p>xxx: <a href="https://github.com/NARKOZ/hacker-scripts/blob/master/smack-my-bitch-up.sh"><code>smack-my-bitch-up.sh</code></a> - sends a text message &quot;late at work&quot; to his wife (apparently). Automatically picks reasons from an array of strings, randomly. Runs inside a cron-job. The job fires if there are active SSH-sessions on the server after 9pm with his login.</p>
+</blockquote>
+<blockquote>
+<p>xxx: <a href="https://github.com/NARKOZ/hacker-scripts/blob/master/kumar-asshole.sh"><code>kumar-asshole.sh</code></a> - scans the inbox for emails from &quot;Kumar&quot; (a DBA at our clients). Looks for keywords like &quot;help&quot;, &quot;trouble&quot;, &quot;sorry&quot; etc. If keywords are found - the script SSHes into the clients server and rolls back the staging database to the latest backup. Then sends a reply &quot;no worries mate, be careful next time&quot;.</p>
+</blockquote>
+<blockquote>
+<p>xxx: <a href="https://github.com/NARKOZ/hacker-scripts/blob/master/hangover.sh"><code>hangover.sh</code></a> - another cron-job that is set to specific dates. Sends automated emails like &quot;not feeling well/gonna work from home&quot; etc. Adds a random &quot;reason&quot; from another predefined array of strings. Fires if there are no interactive sessions on the server at 8:45am.</p>
+</blockquote>
+<blockquote>
+<p>xxx: (and the oscar goes to) <a href="https://github.com/NARKOZ/hacker-scripts/blob/master/fucking-coffee.sh"><code>fucking-coffee.sh</code></a> - this one waits exactly 17 seconds (!), then opens a telnet session to our coffee-machine (we had no frikin idea the coffee machine is on the network, runs linux and has a TCP socket up and running) and sends something like <code>sys brew</code>. Turns out this thing starts brewing a mid-sized half-caf latte and waits another 24 (!) seconds before pouring it into a cup. The timing is exactly how long it takes to walk to the machine from the dudes desk.</p>
+</blockquote>
+<blockquote>
+<p>xxx: holy sh*t I'm keeping those</p>
+</blockquote>
+<ul>
+<li>This is the link for <a href="https://github.com/NARKOZ/hacker-scripts">Narkoz's</a> Github repo where you can check the syntax of these scripts.</li>
+</ul>
+
+    </div>
+
+    
+        <footer>
+            <hr>
+            <p>
+                
+                    Published by Husein
+                
+                
+                    
+                    in <a href="https://bytebridger.com/categories/scripting/">scripting</a>
+                
+                
+            </p>
+            
+            
+        </footer>
+    
+</article>
+
+
+    </body>
+
+</html>

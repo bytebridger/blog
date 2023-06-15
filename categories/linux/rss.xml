@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>Blog - linux</title>
+      <link>https://bytebridger.com/</link>
+      <description>DevOps • Linux • Pancakes</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://bytebridger.com/categories/linux/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sun, 26 Feb 2023 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>tmux - walkthrough with a practical example</title>
+          <pubDate>Sun, 26 Feb 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bytebridger.com/tmux/</link>
+          <guid>https://bytebridger.com/tmux/</guid>
+          <description>&lt;p&gt;This brief post contains some notes related to tmux - from installation to practical example.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Filesystem Hierarchy Standard - study notes</title>
+          <pubDate>Sat, 25 Feb 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://bytebridger.com/fs-hierarchy/</link>
+          <guid>https://bytebridger.com/fs-hierarchy/</guid>
+          <description>&lt;p&gt;This standard consists of a set of requirements and guidelines for file and directory placement under UNIX-like
+operating systems. The guidelines are intended to support interoperability of applications, system administration tools,
+development tools, and scripts as well as greater uniformity of documentation for these systems.&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

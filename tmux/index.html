@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title>Blog</title>
+
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://bytebridger.com/rss.xml">
+      
+
+      
+          <link rel="stylesheet" href="https://bytebridger.com/site.css">
+      
+
+      
+      
+    </head>
+
+    <body class="hack dark main container">
+        
+    
+        
+                
+                    <header>
+                        <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;bytebridger.com&#x2F;">
+                                <span itemprop="name">Home</span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;bytebridger.com&#x2F;&#x2F;categories">
+                                <span itemprop="name">Categories</span></a>
+                        
+                            <a itemprop="url"
+                               class=""
+                               href="https:&#x2F;&#x2F;bytebridger.com&#x2F;&#x2F;about">
+                                <span itemprop="name">About</span></a>
+                        
+                        </nav>
+                    </header>
+                
+            
+    
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">tmux - walkthrough with a practical example</h1>
+        <span class="muted">
+    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <span>3 minute read</span>
+    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2023-02-26
+</span>
+    </header>
+    <div itemprop="articleBody">
+      <p>This brief post contains some notes related to tmux - from installation to practical example.</p>
+<span id="continue-reading"></span><h2 id="docs-and-installation">Docs and installation</h2>
+<ul>
+<li><a href="https://github.com/tmux/tmux/wiki/Getting-Started">docs-getting-started</a>
+<ul>
+<li><code>sudo apt install tmux</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="create-new-session">Create new session</h2>
+<ul>
+<li>Type  <code>tmux</code> to initiate new session.</li>
+</ul>
+<h2 id="create-new-pane-to-right-side-in-terminal">Create new pane to right side in terminal</h2>
+<ul>
+<li><code>Ctrl + b</code> and right after that <code>%</code> or percentage sign.</li>
+<li>type <code>exit</code> to close the pane.</li>
+</ul>
+<h2 id="switch-between-panes">Switch between panes</h2>
+<ul>
+<li><code>Ctrl + b + ← →</code> - use navigation keys. </li>
+</ul>
+<h2 id="create-new-pane-to-bottom-of-the-terminal">Create new pane to bottom of the terminal</h2>
+<ul>
+<li><code>Ctrl + b &quot;</code> - quotation mark at the end.</li>
+</ul>
+<h2 id="creating-windows">Creating windows</h2>
+<ul>
+<li><code>Ctrl + b + c</code> - creates new window with label 1.</li>
+<li>To switch back to window 0, type <code>Ctrl + b + 0</code>. </li>
+</ul>
+<h2 id="renaming-windows">Renaming windows</h2>
+<ul>
+<li>
+<p>For example, we are working with Git in this window:</p>
+<ul>
+<li><code>Ctrl + b + ,</code> - comma at the end and type git.</li>
+</ul>
+</li>
+<li>
+<p>In second window we are working with Docker, and we will name it:</p>
+<ul>
+<li><code>Ctrl + b + ,</code> - and type docker.</li>
+</ul>
+</li>
+</ul>
+<h2 id="sessions">Sessions</h2>
+<ul>
+<li>
+<p>The power of <code>tmux</code> is that handles our processes in a form of sessions. </p>
+</li>
+<li>
+<p>When we start tmux, we start a tmux session that preserves our state or a process that is running within that window.</p>
+</li>
+<li>
+<p>If we lose the connection to SSHed server, but we were using tmux, we can just reload and continue from where we left, if we were running a process - that process would not be terminated.</p>
+</li>
+<li>
+<p>To detach the session 0 that we were working on:</p>
+<ul>
+<li><code>Ctrl + b + d</code></li>
+</ul>
+</li>
+<li>
+<p>To view sessions running in background:</p>
+<ul>
+<li><code>tmux ls</code></li>
+</ul>
+</li>
+<li>
+<p>To reattach to a session 0:</p>
+<ul>
+<li><code>tmux attach -t 0</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="practical-example">Practical example</h2>
+<ul>
+<li>Practical example where we can see that tmux actually preserves a state:
+<ul>
+<li><code>git config --global --list</code></li>
+<li>we have the output.</li>
+</ul>
+</li>
+<li>Now let's detach the session:
+<ul>
+<li><code>Ctrl + b + d</code></li>
+</ul>
+</li>
+<li>To see if it's running:
+<ul>
+<li><code>tmux ls</code></li>
+</ul>
+</li>
+<li>To attach back to session and to see that exact state is preserved:
+<ul>
+<li><code>tmux attach -t 0</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="rename-session-0">Rename session 0:</h2>
+<ul>
+<li><code>tmux rename-session -t 0 git</code></li>
+<li><code>tmux ls</code> - output will show that session name is called git.</li>
+<li><code>Ctrl + l</code> - to clear the terminal.</li>
+</ul>
+<h2 id="to-create-a-new-session-and-name-it-before-the-session-starts">To create a new session and name it before the session starts:</h2>
+<ul>
+<li><code>tmux new -s docker</code> - the session will be named 'docker'</li>
+<li><code>Ctrl + b + d</code> - to detach</li>
+<li><code>tmux ls</code> - to list sessions we are running - we can see docker and git.</li>
+</ul>
+<h2 id="to-delete-or-kill-sessions-we-are-not-using">To delete or kill sessions we are not using:</h2>
+<ul>
+<li>
+<p><code>tmux kill-session -t docker</code> - kills docker session.</p>
+</li>
+<li>
+<p><code>tmux ls</code> - the output will not show docker session.</p>
+</li>
+<li>
+<p><code>tmux kill-session -t git</code> - kills git session.</p>
+</li>
+<li>
+<p>Keep in mind, if not killed, these sessions will be preserved until system reboots.</p>
+</li>
+</ul>
+
+    </div>
+
+    
+        <footer>
+            <hr>
+            <p>
+                
+                    Published by Husein
+                
+                
+                    
+                    in <a href="https://bytebridger.com/categories/linux/">linux</a>
+                
+                
+            </p>
+            
+            
+        </footer>
+    
+</article>
+
+
+    </body>
+
+</html>
