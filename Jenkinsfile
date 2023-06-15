@@ -4,6 +4,7 @@ pipeline {
     stage('checkout-code') {
       steps {
         git(url: 'https://github.com/b-husein/blog', branch: 'main')
+        git(url: 'https://github.com/b-husein/blog', branch: 'main')
       }
     }
 
